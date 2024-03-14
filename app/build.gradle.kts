@@ -7,8 +7,8 @@ application {
 }
 
 dependencies {
-    implementation(platform("com.alibaba.csp:sentinel-parameter-flow-control")) {
-        exclude("com.alibaba.middleware", "metrics-integration")
+    implementation(enforcedPlatform(project(":dependencyManagement")))
+    implementation("com.alibaba.csp:sentinel-spring-webmvc-adapter") {
+        exclude("com.alibaba.csp:sentinel-core")
     }
 }
-

@@ -1,3 +1,9 @@
 rootProject.name = "basic-multiproject"
 include(":dependencyManagement")
-include("app")
+include(":app")
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+}
