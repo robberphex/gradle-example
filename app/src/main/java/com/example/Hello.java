@@ -1,18 +1,31 @@
 package com.example;
 
-import com.alibaba.csp.sentinel.Env;
-import com.alibaba.csp.sentinel.adapter.spring.webmvc.callback.BlockExceptionHandler;
-
 public class Hello {
     public static void main(String[] args) {
         System.out.println("Hello, world!");
-        System.out.println(BlockExceptionHandler.class);
+        tryLoadFromAdapter();
+        tryLoadFromCore();
+    }
+
+    private static void tryLoadFromAdapter() {
+        String success = "success";
         try {
-            System.out.println(Class.forName("com.alibaba.csp.sentinel.Env"));
-        } catch (ClassNotFoundException e) {
-            System.out.println("cannot find class com.alibaba.csp.sentinel.Env.");
+            Class<?> cls = Class.forName("com.alibaba.csp.sentinel.adapter.spring.webmvc.callback.UrlCleaner");
+            System.out.println("load adapter success!\t" + cls.getName());
+        } catch (Throwable e) {
+            System.out.println("load adapter failed!\t" + e);
+            e.printStackTrace();
         }
-        System.out.println(Env.class);
+    }
+
+    private static void tryLoadFromCore() {
+        String success = "success";
+        try {
+            Class<?> cls = Class.forName("com.alibaba.csp.sentinel.Env");
+            System.out.println("load core success!\t" + cls.getName());
+        } catch (Throwable e) {
+            System.out.println("load core failed!\t" + e);
+        }
     }
 }
 
