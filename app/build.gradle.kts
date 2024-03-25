@@ -13,3 +13,11 @@ dependencies {
         exclude("com.alibaba.csp", "sentinel-core")
     }
 }
+
+tasks.test {
+    finalizedBy(tasks.jacocoTestReport)
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+}

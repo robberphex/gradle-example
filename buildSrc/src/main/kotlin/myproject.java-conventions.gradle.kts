@@ -27,8 +27,3 @@ testing {
         }
     }
 }
-
-// Do not generate reports for individual projects
-tasks.jacocoTestReport {
-    enabled = false
-}
