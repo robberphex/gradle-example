@@ -4,7 +4,7 @@ plugins {
 }
 
 application {
-    mainClass = "com.example.Hello"
+    mainClass = "com.app1.Hello"
 }
 
 dependencies {
